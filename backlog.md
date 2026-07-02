@@ -6,7 +6,7 @@ Este arquivo reúne ideias de melhorias para o projeto, organizadas por priorida
 
 - [x] Adicionar um menu inicial com opções como: jogar, ver regras e sair
 - [x] Evitar letras repetidas, mostrando uma mensagem clara quando o jogador tentar usar a mesma letra novamente
-- [ ] Melhorar a validação de entrada para aceitar apenas letras válidas
+- [x] Melhorar a validação de entrada para aceitar apenas letras válidas
 - [ ] Permitir reiniciar uma nova partida sem fechar o programa
 - [ ] Mostrar a palavra secreta ao final da partida de forma mais visual e amigável
 

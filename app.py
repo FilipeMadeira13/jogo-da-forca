@@ -66,6 +66,12 @@ def chutar_letra():
     if len(letra) != 1:
         print('Digite apenas uma letra.')
         voltar_ao_menu_principal()
+        return None
+    
+    if not letra.isalpha():
+        print('Digite apenas letras (sem números ou símbolos).')
+        voltar_ao_menu_principal()
+        return None
     
     return letra
 
