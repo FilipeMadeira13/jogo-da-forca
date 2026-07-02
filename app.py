@@ -8,10 +8,11 @@ def carregar_palavras():
 palavras = carregar_palavras()
 
 def iniciar_jogo():
-    global palavra_secreta, erros, letras_certas
+    global palavra_secreta, erros, letras_certas, letras_escolhidas
     palavra_secreta = random.choice(palavras).upper()
     erros = 0
     letras_certas = []
+    letras_escolhidas = []
 
 def mostrar_opcoes():
     print('1. Jogar')
@@ -72,6 +73,15 @@ def voltar_ao_menu_principal():
 
 def verificar_letra(letra):
     global erros
+    letra = letra.upper()
+
+    if letra in letras_escolhidas:
+        print(f'A letra {letra} já foi escolhida.')
+        voltar_ao_menu_principal()
+        return
+
+    letras_escolhidas.append(letra)
+
     if letra in palavra_secreta.upper():
         print(f'A letra {letra} está na palavra secreta.')
         letras_certas.append(letra)
