@@ -1,40 +1,39 @@
 # 🎮 Jogo da Forca
 
-Um clássico jogo da forca desenvolvido em **Python**, no qual o jogador tenta adivinhar uma palavra secreta, letra por letra, antes que suas tentativas se esgotem.
+Um jogo da forca simples desenvolvido em **Python**, onde o jogador tenta descobrir uma palavra secreta letra por letra antes de acabar suas tentativas.
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
 ![Status](https://img.shields.io/badge/status-concluído-brightgreen)
-![Licença](https://img.shields.io/badge/licença-MIT-lightgrey)
 
 ---
 
 ## 📋 Sobre o projeto
 
-Este é um projeto simples e didático, ideal para praticar lógica de programação, manipulação de strings e estruturas de repetição em Python. A cada rodada, uma palavra é sorteada aleatoriamente de uma lista, e o jogador precisa descobri-la letra por letra antes de esgotar o número de tentativas.
+Este projeto é uma versão interativa do clássico jogo da forca, criada para praticar lógica de programação, manipulação de strings e controle de fluxo em Python. O jogo apresenta um menu inicial, regras acessíveis e dificuldade ajustável.
 
-## ✨ Funcionalidades
+## ✨ Funcionalidades atuais
 
-- 🎲 Escolha aleatória de palavras a partir de um arquivo de texto (`palavras.txt`)
-- ❤️ Sistema de tentativas com contagem de erros
-- 🔤 Feedback visual da palavra secreta, mostrando letras acertadas e espaços em branco para as ainda não descobertas
-- 🏆 Mensagens de vitória ao completar a palavra corretamente
-- 💀 Mensagem de derrota ao esgotar as tentativas
-- ✅ Validação de entrada (evita letras repetidas ou caracteres inválidos)
+- 🎮 Menu inicial com opções: jogar, ver regras e sair
+- 🧠 Três níveis de dificuldade: fácil, médio e difícil
+- 🔤 Escolha aleatória de palavras a partir de `palavras.txt`
+- ✅ Validação de entrada para aceitar apenas letras válidas
+- 🚫 Bloqueio de letras repetidas, com aviso claro ao jogador
+- 🔁 Permite reiniciar uma nova partida sem fechar o programa
+- 🎉 Exibe a palavra secreta de maneira amigável ao final da partida
 
 ## 🧰 Requisitos
 
 - [Python 3.x](https://www.python.org/downloads/) instalado na máquina
 
-Não há dependências externas — o jogo utiliza apenas bibliotecas nativas do Python.
+Nenhuma dependência externa é necessária: o jogo usa apenas bibliotecas padrão do Python.
 
 ## 🚀 Como executar
 
-1. Clone este repositório ou baixe os arquivos do projeto:
+1. Abra um terminal na pasta do projeto:
    ```bash
-   git clone https://github.com/seu-usuario/jogo-da-forca.git
-   cd jogo-da-forca
+   cd c:\Projetos\jogo-da-forca
    ```
-2. Execute o jogo com o seguinte comando:
+2. Execute o jogo:
    ```bash
    python app.py
    ```
@@ -45,28 +44,31 @@ Não há dependências externas — o jogo utiliza apenas bibliotecas nativas do
 jogo-da-forca/
 ├── app.py          # Lógica principal do jogo
 ├── palavras.txt    # Lista de palavras utilizadas pelo jogo
-└── README.md        # Documentação do projeto
+├── regras.txt      # Regras do jogo exibidas no menu
+└── README.md       # Documentação do projeto
 ```
 
 ## 🕹️ Como jogar
 
-1. O jogo escolhe automaticamente uma palavra secreta da lista em `palavras.txt`.
-2. A palavra é exibida com traços (`_`) representando cada letra ainda não descoberta.
-3. Digite uma letra por vez e pressione Enter.
-4. Se a letra estiver na palavra, ela é revelada em sua posição correta.
-5. Se a letra não estiver na palavra, uma tentativa é perdida.
-6. O jogo termina quando:
-   - ✅ Você descobre todas as letras da palavra (**vitória**), ou
-   - ❌ Suas tentativas se esgotam (**derrota**).
+1. Escolha a opção "Jogar" no menu inicial.
+2. Selecione o nível de dificuldade: fácil, médio ou difícil.
+3. A palavra secreta será escolhida automaticamente.
+4. Digite uma letra por vez e pressione Enter.
+5. Se a letra estiver correta, ela é revelada na palavra.
+6. Se a letra não estiver correta, você perde uma tentativa.
+7. O jogo termina quando:
+   - ✅ Você adivinha toda a palavra, ou
+   - ❌ Suas tentativas se esgotam.
 
 ## 🛠️ Personalização
 
-Você pode adicionar ou remover palavras facilmente editando o arquivo `palavras.txt`, inserindo uma palavra por linha.
+- Adicione ou remova palavras no arquivo `palavras.txt`, uma palavra por linha.
+- Edite `regras.txt` para alterar o texto exibido na opção de regras.
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma *issue* ou enviar um *pull request* com melhorias, novas funcionalidades ou correções de bugs.
+Contribuições são bem-vindas! Abra uma *issue* ou envie um *pull request* com melhorias, novas funcionalidades ou correções.
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
+Este projeto está disponível sob a licença MIT.
