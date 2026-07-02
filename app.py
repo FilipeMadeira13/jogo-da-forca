@@ -13,6 +13,38 @@ def iniciar_jogo():
     erros = 0
     letras_certas = []
 
+def mostrar_opcoes():
+    print('1. Jogar')
+    print('2. Ver regras')
+    print('3. Sair')
+
+def escolher_opcao():
+    try:
+        opcao = int(input('Escolha o número da opção: ').strip())
+
+        if opcao == 1:
+            main()
+        elif opcao == 2:
+            limpar_tela()
+            with open('regras.txt', 'r', encoding='utf-8') as arquivo:
+                for linha in arquivo:
+                    if linha.strip():
+                        print(linha.strip())
+
+        elif opcao == 3:
+            limpar_tela()
+            print('Você saiu do jogo.')
+            return
+        
+    except ValueError as e:
+        print(f'Erro: {e}')
+
+def menu_iniciar():
+    limpar_tela()
+    exibir_nome_do_jogo()
+    mostrar_opcoes()
+    escolher_opcao()
+
 def exibir_nome_do_jogo():
     print('''
           
@@ -66,7 +98,6 @@ def perdeu():
 
 def main():
     limpar_tela()
-    exibir_nome_do_jogo()
 
     if perdeu():
         print('Você não tem mais chances.')
@@ -85,4 +116,4 @@ def main():
 
 if __name__ == '__main__':
     iniciar_jogo()
-    main()
+    menu_iniciar()

@@ -1,0 +1,17 @@
+Regras do Jogo da Forca
+
+1. O jogo escolhe aleatoriamente uma palavra secreta da lista de palavras.
+2. A palavra é exibida com traços (_) no lugar de cada letra não descoberta.
+3. O jogador deve digitar uma letra por vez.
+4. Se a letra estiver na palavra, ela será revelada nas posições corretas.
+5. Se a letra não estiver na palavra, o jogador perde uma tentativa.
+6. O jogador tem no máximo 6 tentativas erradas.
+7. O jogo termina quando:
+   - o jogador descobre todas as letras da palavra (vitória), ou
+   - o jogador esgota as 6 tentativas erradas (derrota).
+8. O jogador pode jogar novamente adicionando mais palavras em palavras.txt ou reiniciando o jogo.
+
+Dicas:
+- Use letras diferentes para não perder tentativas desnecessárias.
+- Palavras podem ter letras repetidas.
+- Leia atentamente as mensagens mostradas após cada chute.
