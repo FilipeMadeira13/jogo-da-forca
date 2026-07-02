@@ -12,7 +12,7 @@ Este arquivo reúne ideias de melhorias para o projeto, organizadas por priorida
 
 ## Prioridade média
 
-- [ ] Adicionar níveis de dificuldade: fácil, médio e difícil
+- [x] Adicionar níveis de dificuldade: fácil, médio e difícil
 - [ ] Criar categorias de palavras, como animais, objetos, programação, frutas e países
 - [ ] Implementar um sistema de pontuação por rodada vencida
 - [ ] Adicionar um placar com os melhores resultados

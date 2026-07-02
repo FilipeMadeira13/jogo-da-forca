@@ -11,18 +11,57 @@ def carregar_palavras():
 
 palavras = carregar_palavras()
 
+# def reiniciar_opcoes_jogo():
+#     global palavra_secreta, erros, letras_certas, letras_escolhidas
+#     palavra_secreta = random.choice(palavras).upper()
+#     erros = 0
+#     letras_certas = []
+#     letras_escolhidas = []
+
+def escolher_dificuldade():
+    global dificuldade, max_erros
+
+    print()
+    print('1. Fácil')
+    print('2. Médio')
+    print('3. Difícil')
+
+    try:
+        opcao = int(input('Escolha a dificuldade: ').strip())
+    except ValueError:
+        print('Opção inválida, usando Médio.')
+        opcao = 2
+
+    if opcao == 1:
+        dificuldade = 'facil'
+        max_erros = 8
+    elif opcao == 3:
+        dificuldade = 'dificil'
+        max_erros = 4
+    else:
+        dificuldade = 'medio'
+        max_erros = 6
+
 def reiniciar_opcoes_jogo():
     global palavra_secreta, erros, letras_certas, letras_escolhidas
-    palavra_secreta = random.choice(palavras).upper()
+
+    if dificuldade == 'facil':
+        candidatas = [p for p in palavras if len(p) <= 5]
+    elif dificuldade == 'dificil':
+        candidatas = [p for p in palavras if len(p) >= 9]
+    else:
+        candidatas = [p for p in palavras if 6 <= len(p) <= 8]
+
+    # fallback caso a lista filtrada esteja vazia
+    if not candidatas:
+        candidatas = palavras
+
+    palavra_secreta = random.choice(candidatas).upper()
     erros = 0
     letras_certas = []
     letras_escolhidas = []
 
-def iniciar_jogo():
-    reiniciar_opcoes_jogo()
-    menu_iniciar()
-
-def mostrar_opcoes():
+def mostrar_opcoes_inicio_jogo():
     print('1. Jogar')
     print('2. Ver regras')
     print('3. Sair')
@@ -32,6 +71,8 @@ def escolher_opcao_inicio_jogo():
         opcao = int(input('Escolha o número da opção: ').strip())
 
         if opcao == 1:
+            escolher_dificuldade()
+            reiniciar_opcoes_jogo()
             main()
         elif opcao == 2:
             limpar_tela()
@@ -41,7 +82,7 @@ def escolher_opcao_inicio_jogo():
                         print(linha.strip())
             
             input()
-            menu_iniciar()
+            iniciar_jogo()
 
         elif opcao == 3:
             limpar_tela()
@@ -51,10 +92,10 @@ def escolher_opcao_inicio_jogo():
     except ValueError as e:
         print(f'Erro: {e}')
 
-def menu_iniciar():
+def iniciar_jogo():
     limpar_tela()
     exibir_nome_do_jogo()
-    mostrar_opcoes()
+    mostrar_opcoes_inicio_jogo()
     escolher_opcao_inicio_jogo()
 
 def exibir_nome_do_jogo():
@@ -106,8 +147,9 @@ def verificar_letra(letra):
         print(f'A letra {letra} não está na palavra secreta.')
         erros += 1
         if not perdeu():
-            palavra_chance = 'chance' if erros == 5 else 'chances'
-            print(f'Você ainda tem {6 - erros} {palavra_chance}.')
+            chances_restantes = max_erros - erros
+            palavra_chance = 'chance' if chances_restantes == 1 else 'chances'
+            print(f'Você ainda tem {chances_restantes} {palavra_chance}.')
 
     for l in palavra_secreta.upper():
         if l in letras_certas:
@@ -121,7 +163,7 @@ def venceu():
     return set(palavra_secreta.upper()) <= set(letras_certas)
 
 def perdeu():
-    return erros >= 6
+    return erros >= max_erros
 
 def reiniciar_partida():
     reiniciar = input('Deseja reiniciar a partida? (S/N): ').lower().strip() == 's'
