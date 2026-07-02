@@ -1,6 +1,10 @@
 import os
 import random
 
+VERDE = '\033[92m'
+VERMELHO = '\033[91m'
+RESET = '\033[0m'
+
 def carregar_palavras():
     with open('palavras.txt', 'r', encoding='utf-8') as arquivo:
         return [linha.strip().upper() for linha in arquivo if linha.strip()]
@@ -125,17 +129,33 @@ def reiniciar_partida():
     if reiniciar:
         iniciar_jogo()
 
+def mostrar_palavra_final(vitoria):
+    cor = VERDE if vitoria else VERMELHO
+    palavra_formatada = ' '.join(palavra_secreta.upper())
+    largura = len(palavra_formatada) + 4
+
+    print()
+    if vitoria:
+        print('🎉 ' + '═' * largura + ' 🎉')
+        print(f'   PARABÉNS, VOCÊ VENCEU!')
+    else:
+        print('💀 ' + '═' * largura + ' 💀')
+        print(f'   FIM DE JOGO...')
+
+    print(f'{cor}[ {palavra_formatada} ]{RESET}')
+    print('═' * (largura + 4))
+    print()
+
 def main():
     limpar_tela()
 
     if perdeu():
-        print('Você não tem mais chances.')
-        print(f'A palavra secreta era {palavra_secreta}.')
+        mostrar_palavra_final(vitoria=False)
         reiniciar_partida()
         return
 
     if venceu():
-        print('Parabéns! Você descobriu a palavra secreta.')
+        mostrar_palavra_final(vitoria=True)
         reiniciar_partida()
         return
 

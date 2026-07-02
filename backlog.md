@@ -8,7 +8,7 @@ Este arquivo reúne ideias de melhorias para o projeto, organizadas por priorida
 - [x] Evitar letras repetidas, mostrando uma mensagem clara quando o jogador tentar usar a mesma letra novamente
 - [x] Melhorar a validação de entrada para aceitar apenas letras válidas
 - [x] Permitir reiniciar uma nova partida sem fechar o programa
-- [ ] Mostrar a palavra secreta ao final da partida de forma mais visual e amigável
+- [x] Mostrar a palavra secreta ao final da partida de forma mais visual e amigável
 
 ## Prioridade média
 
