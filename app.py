@@ -7,12 +7,16 @@ def carregar_palavras():
 
 palavras = carregar_palavras()
 
-def iniciar_jogo():
+def reiniciar_opcoes_jogo():
     global palavra_secreta, erros, letras_certas, letras_escolhidas
     palavra_secreta = random.choice(palavras).upper()
     erros = 0
     letras_certas = []
     letras_escolhidas = []
+
+def iniciar_jogo():
+    reiniciar_opcoes_jogo()
+    menu_iniciar()
 
 def mostrar_opcoes():
     print('1. Jogar')
@@ -115,16 +119,24 @@ def venceu():
 def perdeu():
     return erros >= 6
 
+def reiniciar_partida():
+    reiniciar = input('Deseja reiniciar a partida? (S/N): ').lower().strip() == 's'
+
+    if reiniciar:
+        iniciar_jogo()
+
 def main():
     limpar_tela()
 
     if perdeu():
         print('Você não tem mais chances.')
         print(f'A palavra secreta era {palavra_secreta}.')
+        reiniciar_partida()
         return
 
     if venceu():
         print('Parabéns! Você descobriu a palavra secreta.')
+        reiniciar_partida()
         return
 
     letra = chutar_letra()
@@ -135,4 +147,3 @@ def main():
 
 if __name__ == '__main__':
     iniciar_jogo()
-    menu_iniciar()
