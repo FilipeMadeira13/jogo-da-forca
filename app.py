@@ -19,7 +19,7 @@ def mostrar_opcoes():
     print('2. Ver regras')
     print('3. Sair')
 
-def escolher_opcao():
+def escolher_opcao_inicio_jogo():
     try:
         opcao = int(input('Escolha o número da opção: ').strip())
 
@@ -31,6 +31,9 @@ def escolher_opcao():
                 for linha in arquivo:
                     if linha.strip():
                         print(linha.strip())
+            
+            input()
+            menu_iniciar()
 
         elif opcao == 3:
             limpar_tela()
@@ -44,7 +47,7 @@ def menu_iniciar():
     limpar_tela()
     exibir_nome_do_jogo()
     mostrar_opcoes()
-    escolher_opcao()
+    escolher_opcao_inicio_jogo()
 
 def exibir_nome_do_jogo():
     print('''
